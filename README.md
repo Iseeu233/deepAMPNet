@@ -5,6 +5,7 @@ The implementation of deepAMPNet for identification of antimicrobial peptides.
 </p>  
 
 ### Dependencies<br>
+```
 Python 3.7.0<br>
 torch 1.13.1<br>
 torch-cluster 1.6.0<br>
@@ -16,6 +17,7 @@ biopython 1.81<br>
 h5py 3.8.0<br>
 numpy 1.21.6<br>
 pandas 1.3.5<br>
+```
 More detailed python libraries used in this project are referred to ` requirements.txt ` , install the pytorch and pyG (torch-cluster, torch-scatter, torch-sparse, torch-geometric) according to your CUDA version.<br>
 ### Datasets<br>
 Datasets for training and testing can be constructed using the method shown in 	`example/example.sh`, you are required to initially download the pre-trained Bi-LSTM protein language model from [here](http://bergerlab-downloads.csail.mit.edu/prose/saved_models.zip) and stored it in folder `Bi_LSTM_model`.The model we used is called `prose_mt_3x1024.sav`.<br>
@@ -26,7 +28,7 @@ python ../dataset_h5.py --pdb example_pdb --label AMPs.txt --h5 example.h5 --thr
 ### Train<br>
 You can specify datasets to train and test model:  
 ```
-python train.py --batch_size 64 --epochs 100 --learning_rate 0.0005 --train_dataset <your_train_dataset> --test_dataset <your_test_dataset_test> --dropout 0.5 --num_features 6165 --hidden_dim 512 --net HGPSL --save HGPSL_out
+python train.py --batch_size 64 --epochs 100 --learning_rate 0.0005 --train_dataset <your_train_dataset> --test_dataset <your_test_dataset> --dropout 0.5 --num_features 6165 --hidden_dim 512 --net HGPSL --save HGPSL_out
 ```
 ```
 optional arguments:

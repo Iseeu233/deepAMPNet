@@ -20,7 +20,7 @@ pandas 1.3.5
 ```
 More detailed python libraries used in this project are referred to ` requirements.txt ` , install the pytorch and pyG (torch-cluster, torch-scatter, torch-sparse, torch-geometric) according to your CUDA version.<br>
 ### Datasets<br>
-Datasets for training and testing can be constructed using the method shown in 	`example/example.sh`, you are required to initially download the pre-trained Bi-LSTM protein language model from [here](http://bergerlab-downloads.csail.mit.edu/prose/saved_models.zip) and stored it in folder `Bi_LSTM_model`.The model we used is called `prose_mt_3x1024.sav`.<br>
+Datasets for training and testing can be constructed using the method shown in 	`example/example.sh`, you are required to initially download the pre-trained Bi-LSTM protein language model from [here](http://bergerlab-downloads.csail.mit.edu/prose/saved_models.zip) and store it in folder `Bi_LSTM_model`.The model we used is called `prose_mt_3x1024.sav`.<br>
 ```
 python ../encode_AA.py -i example.fasta -o example.h5 -n 6165 -d -1
 python ../dataset_h5.py --pdb example_pdb --label AMPs.txt --h5 example.h5 --threshold 20 --root dataset_example
@@ -62,7 +62,7 @@ optional arguments:
                         pooling ratio for HGPSL Model
   --lamb LAMB           trade-off parameter for HGPSL Model
 ```
-### Test&Predict<br>
+### Test & Predict<br>
 You can specify datasets to test and use trained model to identify AMPs on your own data:  
 ```
 python test.py --batch_size 32 --test_dataset <your_dataset_for_prediction> --model saved_model/deepAMPNet.pth --prefix out

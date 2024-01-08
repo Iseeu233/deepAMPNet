@@ -6,17 +6,17 @@ The implementation of deepAMPNet for identification of antimicrobial peptides.
 
 ### Dependencies<br>
 ```
-Python 3.7.0<br>
-torch 1.13.1<br>
-torch-cluster 1.6.0<br>
-torch-scatter 2.0.9<br>
-torch-sparse 0.6.15<br>
-torch-geometric 2.3.1<br>
-scikit-learn 1.0.2<br>
-biopython 1.81<br>
-h5py 3.8.0<br>
-numpy 1.21.6<br>
-pandas 1.3.5<br>
+Python 3.7.0
+torch 1.13.1
+torch-cluster 1.6.0
+torch-scatter 2.0.9
+torch-sparse 0.6.15
+torch-geometric 2.3.1
+scikit-learn 1.0.2
+biopython 1.81
+h5py 3.8.0
+numpy 1.21.6
+pandas 1.3.5
 ```
 More detailed python libraries used in this project are referred to ` requirements.txt ` , install the pytorch and pyG (torch-cluster, torch-scatter, torch-sparse, torch-geometric) according to your CUDA version.<br>
 ### Datasets<br>
@@ -61,4 +61,19 @@ optional arguments:
   --pool_ratio POOL_RATIO
                         pooling ratio for HGPSL Model
   --lamb LAMB           trade-off parameter for HGPSL Model
+```
+### Test&Predict<br>
+You can specify datasets to test and use trained model to identify AMPs on your own data:  
+```
+python test.py --batch_size 32 --test_dataset <your_dataset_for_prediction> --model saved_model/deepAMPNet.pth --prefix out
+```
+```
+optional arguments:
+  -h, --help            show this help message and exit
+  --batch_size BATCH_SIZE
+                        batch size in testing
+  --test_dataset TEST_DATASET
+                        dataset of test data
+  --model MODEL         path of model
+  --prefix PREFIX       prefix of output csv
 ```
